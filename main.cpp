@@ -44,6 +44,7 @@ void TicTacToe::next_move(int location){
 
     // since location passed the above checks, edit the board
     boardValues[row][col] = (location * nextPlayer);
+    nextPlayer = (nextPlayer == X_VAL) ? O_VAL : X_VAL; // toggle nextPlayer
     return;
 }
 
