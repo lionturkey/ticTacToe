@@ -28,7 +28,23 @@ int TicTacToe::getPlayer() {
 }
 
 void TicTacToe::next_move(int location){
-    return; // TODO
+    // ensure location is in bounds
+    if ((location > 9) || (location < 1)) {
+        std::cout << "Invalid square please try again." << std::endl;
+        return;
+    }
+
+    int row = (location - 1) / 3;
+    int col = (location - 1) % 3;
+
+    if (boardValues[row][col] > 9) {
+        std::cout << "Square already occupied, try again." << std::endl;
+        return;
+    }
+
+    // since location passed the above checks, edit the board
+    boardValues[row][col] = (location * nextPlayer);
+    return;
 }
 
 bool TicTacToe::check_end() {
