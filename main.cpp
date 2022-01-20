@@ -1,7 +1,7 @@
 #include <iostream>
 
-const int X_VAL = 11;
-const int O_VAL = 13;
+const int X_VAL = 17;
+const int O_VAL = 19;
 
 class TicTacToe {
     private:
