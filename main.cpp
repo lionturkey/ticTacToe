@@ -1,9 +1,12 @@
 #include <iostream>
 
+const int X_VAL = 11;
+const int O_VAL = 13;
+
 class TicTacToe {
     private:
         int boardValues[3][3] = {};
-        int nextPlayer = 11; // switch between 11 for X and 13 for O
+        int nextPlayer = X_VAL; // switch between 11 for X and 13 for O
     
     public:
         TicTacToe();
@@ -12,10 +15,6 @@ class TicTacToe {
         bool check_end(); // check if game is over
         friend std::ostream & operator << (std::ostream &out, const TicTacToe &T); // for easy board printing
 };
-
-char player_char_converter(int player_number) {
-    return 'a';
-}
 
 TicTacToe::TicTacToe() {
     // set initial board values of 1-9 (no 0 bc we're depending on divisibility tests)
@@ -34,6 +33,17 @@ void TicTacToe::next_move(int location){
 
 bool TicTacToe::check_end() {
     return true; // TODO
+}
+
+// if a number is divisible by X_VAL or O_VAL, print X or O respectively
+char player_char_converter(int player_number) {
+    if ((player_number % X_VAL) == 0) {
+        return 'X';
+    } else if ((player_number % O_VAL) == 0) {
+        return 'O';
+    } else {
+        return static_cast<char>(player_number + 48); // add 48 for the ASCII to match the int
+    }
 }
 
 // example output:
