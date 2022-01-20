@@ -36,10 +36,36 @@ bool TicTacToe::check_end() {
     return true; // TODO
 }
 
+// example output:
+//      |     |
+//   1  |  X  |  3
+// _____|_____|_____
+//      |     |
+//   4  |  5  |  6
+// _____|_____|_____
+//      |     |
+//   7  |  8  |  9
+//      |     |
 std::ostream & operator << (std::ostream &out, const TicTacToe &T) {
-    std::cout << "Gotta implement board printing!" << std::endl;
+    std::cout << "     |     |" << std::endl;
+    std::cout << "  " << player_char_converter(T.boardValues[0][0]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[0][1]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[0][2]) << std::endl;
+    std::cout << "_____|_____|_____" << std::endl;
+    std::cout << "     |     |" << std::endl;
+    std::cout << "  " << player_char_converter(T.boardValues[1][0]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[1][1]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[1][2]) << std::endl;
+    std::cout << "_____|_____|_____" << std::endl;
+    std::cout << "     |     |" << std::endl;
+    std::cout << "  " << player_char_converter(T.boardValues[2][0]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[2][1]);
+    std::cout << "  |  " << player_char_converter(T.boardValues[2][2]) << std::endl;
+    std::cout << "     |     |" << std::endl;
     return out;
 }
+
+
 
 int main(){
     TicTacToe gameBoard;
