@@ -36,6 +36,7 @@ void TicTacToe::next_move(int location){
         return;
     }
 
+    // translate board location to coordinates
     int row = (location - 1) / 3;
     int col = (location - 1) % 3;
 
@@ -156,14 +157,14 @@ int main(){
     std::cout << "Welcome to Tic-Tac-Toe" << std::endl;
     while (endCondition == false) {
         std::cout << gameBoard << std::endl;
-        int which_player = gameBoard.getPlayer();
+        int which_player = gameBoard.getPlayer(); // determing next player
         std::cout << "Player " << player_char_converter(which_player);
         std::cout << " type the number of a square to play your move:" << std::endl;
 
         int location;
         std::cin >> location;
         gameBoard.next_move(location);
-        endCondition = gameBoard.check_end();
+        endCondition = gameBoard.check_end(); // we done here?
     }
     std::cout << gameBoard << std:: endl;
     return 0;
